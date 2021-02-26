@@ -1,0 +1,38 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	background: #e8ded2;
+	color: #056676;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 80px);
+	grid-template-rows: repeat(3, 85px);
+	justify-content: center;
+	font-size: 25px;
+	padding-top: 20px;
+}
+
+.item {
+	border: 2px solid #056676;
+	text-align: center;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.item:hover, 
+.playAgain:hover {
+	background: #a3d2ca;
+}
+
+.playAgain {
+	margin-top: 20px;
+	padding: 15px 20px;
+	cursor: pointer;
+	color: inherit;
+	background: inherit;
+	border: 2px solid #056676;
+	border-radius: 5px;
+	outline: none;
+}
