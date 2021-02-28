@@ -1,47 +1,19 @@
-let x = "X";
-let o = "O";
-let player = o;
+let players = () => {
 
-let identifyPlayerX = [];
-let identifyPlayerO = [];
+};
 
-function activePlayer() {
-	if (player == x) {
-		player = o;
-	}else{
-		player = x;
-	}
-}
-
-let gameboard = document.querySelectorAll(".cell");
-gameboard.forEach(cell => {
-	cell.addEventListener("click", () => {
-		if (cell.textContent == "") {
-			activePlayer();
-			cell.textContent = player;
+let gameBoard = (() => {
+	let board = ["x", "o", "o", "x", "x", "x", "o", "o", "o"];
+	let htmlBoard = Array.from(document.querySelectorAll(".cell"));
+	function mark() {
+		for (i = 0; i < board.length; i++) {
+			htmlBoard[i].textContent = board[i];
 		}
+	}
 
-		if (player == x) {
-			identifyPlayerX.push(cell.id);
-		}else {
-			identifyPlayerO.push(cell.id);
-		} 
-	});
-});
+	mark();
+})();
 
-function winnerChecker() {
-	let winningSequences = [
-			[3,5,7],
-			[1,5,9],
-			[1,2,3],
-			[4,5,6],
-			[7,8,9],
-			[1,4,7],
-			[2,5,8],
-			[3,6,9]
-		];
+let displayController = (()=> {
 
-	return {
-		winningSequences
-	};
-}
+})();
