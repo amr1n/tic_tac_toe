@@ -1,19 +1,32 @@
-let players = () => {
 
-};
+let Player = (name) => {
+	this.name = name;
+	return {name};
+}
 
-let gameBoard = (() => {
-	let board = ["x", "o", "o", "x", "x", "x", "o", "o", "o"];
-	let htmlBoard = Array.from(document.querySelectorAll(".cell"));
-	function mark() {
-		for (i = 0; i < board.length; i++) {
-			htmlBoard[i].textContent = board[i];
-		}
+let gameboard = (() =>{
+	let board = ["", "", "", "", "", "", "", "", ""];
+	let grid = document.querySelectorAll(".cell");
+	let PlayerX = Player("x");
+	let PlayerO = Player("O");
+	let currentPlayer = PlayerX;
+	function activePalyer() {
+		currentPlayer = currentPlayer == PlayerX ? PlayerO: PlayerX;
 	}
 
-	mark();
-})();
+	//render the content of the board on webpage;
+	grid.forEach((cell) => {
+		cell.addEventListener("click", ()=> {
+			if (cell.textContent == "") {
+				activePalyer();
+				board[cell.id] = currentPlayer.name;
+				cell.textContent = board[cell.id];
+			}
+		});
+	});
+ 
+})(); 
 
-let displayController = (()=> {
 
-})();
+
+
